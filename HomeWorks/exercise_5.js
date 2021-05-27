@@ -4,9 +4,9 @@ let b = +prompt("Enter number b");
 alert(`a = ${a}
 b = ${b}`);
 
-a = a + b;
+a += b;
 b = a - b;
-a = a - b;
+a -= b;
 
 alert(`a = ${a}
 b = ${b}`);
