@@ -85,7 +85,7 @@ console.log(max - min);
 //5. Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
 
 let num = +prompt("Enter number");
-var x = 1;
+let x = 1;
 
 for (i = 2; i < num; i++) {
   if (num % i == 0) {
