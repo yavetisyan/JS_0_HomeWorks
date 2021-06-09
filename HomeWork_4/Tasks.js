@@ -3,7 +3,7 @@
 let num = Math.abs(+prompt("Enter Digit Number"));
 let b = "" + num;
 
-console.log("Digit count = " + b.length - 1);
+console.log("Digit count = " + b.length);
 
 // 2. Count numbers of digit 9 in a number.
 
