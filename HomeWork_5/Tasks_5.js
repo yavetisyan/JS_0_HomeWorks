@@ -1,34 +1,22 @@
 // 1. Given an array of numbers. Write a function to separate odd and even numbers in different arrays.
 
-let count = Math.abs(prompt("Enter the count arrays"));
-let arraY = [];
-let number = arraY;
+let a = [1, 2, 3, 4, 10, 5, 6];
+function isOddEven(arr) {
+  const even = [];
+  const odd = [];
 
-for (let i = 0; i < count; i++) {
-  arraY.push(Math.abs(prompt("Enter arrays")));
-}
-
-function isOdd(num) {
-  let arr = [];
-  for (let i = 0; i < num.length; i++) {
-    if (num[i] % 2 === 1) {
-      arr.push(num[i]);
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 == 0) {
+      even.push(arr[i]);
+    }
+    if (arr[i] !== 0) {
+      odd.push(arr[i]);
     }
   }
-  return arr;
+  console.log(odd, even);
 }
 
-function isEven(num) {
-  let arr = [];
-  for (let i = 0; i < num.length; i++) {
-    if (num[i] % 2 === 0) {
-      arr.push(num[i]);
-    }
-  }
-  return arr;
-}
-
-console.log(isOdd(number), isEven(number));
+console.log(isOddEven(a));
 
 // 2. Given a word and a list of possible anagrams, select the correct sublist.
 // Work onli one letter, when in string two letters, the program not work
@@ -36,28 +24,39 @@ console.log(isOdd(number), isEven(number));
 let a = ["inlets", "enlists", "google", "banana"];
 let b = "listen";
 
-function anagr(arr, findeAnagr) {
-  let array = [];
-  let result = "";
-
-  for (let i = 0; i < arr.length; i++) {
-    for (let j = 0; j < arr[i].length; j++) {
-      if (arr[i].length !== findeAnagr.length) {
-        break;
-      }
-      for (let k = 0; k < findeAnagr.length; k++) {
-        if (arr[i][j] === findeAnagr[k]) {
-          result += findeAnagr[k];
-        }
-      }
+function isAnagram(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+  let count = 0;
+  for (let i = 0; i < str1.length; i++) {
+    if (isStringsIncludesChar(str1[i], str2)) {
+      count++;
     }
-    if (result === arr[i]) {
+  }
+  return count === str1.length ? true : false;
+}
+
+function isStringsIncludesChar(char, str) {
+  for (let i = 0; i < str.length; i++) {
+    if (char === str[i]) {
+      return true;
+    }
+  }
+  return false;
+}
+
+function findAnagram(str, arr) {
+  for (let i = 0; i < arr.length; i++) {
+    if (isAnagram(str, arr[i])) {
       return arr[i];
     }
   }
+  return null;
 }
 
-console.log(anagr(a, b));
+debugger;
+console.log(findAnagram(b, a));
 
 // 3. Write a function which receives two strings and removes
 //appearances of the second string from the first one
@@ -113,7 +112,7 @@ function replaceStr(text, rtext) {
   for (let i = 0; i < text.length; i++) {
     if (text[i] === rtext) {
       text[i] = newT;
-      return text.rep~laceAll(oldT, newT);
+      return text.replaceAll(oldT, newT);
     }
   }
 }
